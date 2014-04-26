@@ -1,0 +1,35 @@
+/*[class*="col-"] {
+	background-color: rgba(86, 61, 124, 0.15);
+	border: 1px solid rgba(86, 61, 124, 0.2);
+	padding-bottom: 15px;
+	padding-top: 15px;
+}*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+#footer > .container {
+	padding-top: 20px;
+}
+
+#footer > .container small {
+	color: #999999;
+}
