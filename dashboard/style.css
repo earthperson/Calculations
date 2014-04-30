@@ -36,7 +36,7 @@ body {
 
 #luhn {
 	width: 260px;
-	height: 189px;
+	height: 162px;
 	background: url("images/mastercard_world.png") top left no-repeat;
 }
 #luhn input {
@@ -50,5 +50,7 @@ body {
 
 .alert {
 	margin-bottom: 0;
-	width: 260px;
+	width: 246px;
+	margin-left: 8px;
+	padding: 4px;
 }
