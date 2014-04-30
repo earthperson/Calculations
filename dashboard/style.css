@@ -33,3 +33,17 @@ body {
 #footer > .container small {
 	color: #999999;
 }
+
+#luhn {
+	width: 260px;
+	height: 189px;
+	background: url("images/mastercard_world.png") top left no-repeat;
+}
+#luhn input {
+	position: relative;
+	width: 52px;
+	height: 22px;
+	top: 90px;
+	left: 22px;
+	display: inline-block;
+}
