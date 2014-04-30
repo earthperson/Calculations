@@ -47,3 +47,8 @@ body {
 	left: 22px;
 	display: inline-block;
 }
+
+.alert {
+	margin-bottom: 0;
+	width: 260px;
+}

@@ -3,13 +3,19 @@ $(function() {
 		var number = [], $this = this;
 		$('input', this).keyup(function() {
 			number[$(this).index()] = $.trim($(this).val());
-			if(number.length == 4 && luhn(number.join(''))) {
-				$this.removeClass('has-error').addClass('has-success');
+			if(number.join('').length == 16) {
+				if(!isNaN(number[0]) && luhn(number.join(''))) {
+					$this.removeClass('has-error').addClass('has-success')
+					.prev('.alert').removeClass('alert-danger').addClass('alert-success').text('Is valid').show();
+				}
+				else {
+					$this.removeClass('has-success').addClass('has-error')
+					.prev('.alert').removeClass('alert-success').addClass('alert-danger').text('Is not valid').show();
+				}
 			}
 			else {
-				$this.removeClass('has-success').addClass('has-error');
+				$this.prev('.alert').hide();
 			}
-			console.log(number.join(''));
 		});
 	};
 	$('#luhn').luhn();
