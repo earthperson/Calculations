@@ -1,6 +1,7 @@
 $(function() {
 	$.fn.luhn = function() {
-		var number = [], $this = this, type = {
+		var number = [], $this = this,
+		iins = { // Issuer identification numbers http://en.wikipedia.org/wiki/Bank_card_number
 			"American Express": [34, 37],
 			"Bankcard": [5610, 560221, 560222, 560223, 560224, 560225],
 			"China UnionPay": [62, 88],
@@ -21,25 +22,26 @@ $(function() {
 			"Visa Electron": [4026, 417500, 4405, 4508, 4844, 4913, 4917]
 		};
 		$('input', this).keyup(function() {
-			var a, b;
+			var a, b, l = 0, iin = '';
 			number[$(this).index()] = $.trim($(this).val());
 			if(number.join('').length == 16) {
-				outer_loop:
-				for(a in type) {
-					for(b in type[a]) {
-						if (number.join('').substring(0, type[a][b].toString().length) == type[a][b]) {
-							type = a;
-							break outer_loop;
+				for(a in iins) {
+					for(b in iins[a]) {
+						if (number.join('').substring(0, iins[a][b].toString().length) == iins[a][b]) {
+							if(l < iins[a][b].toString().length) {
+								iin = a;
+								l = iins[a][b].toString().length;
+							}
 						}
 					}
 				}
 				if(!isNaN(number[0]) && luhn(number.join(''))) {
 					$('.form-group', $this).removeClass('has-error').addClass('has-success');
-					$('.alert', $this).removeClass('alert-danger').addClass('alert-success').text('Your card ' + (typeof type == 'string' ? type : '') + ' is valid.').show();
+					$('.alert', $this).removeClass('alert-danger').addClass('alert-success').text('Your card ' + iin + ' is valid.').show();
 				}
 				else {
 					$('.form-group', $this).removeClass('has-success').addClass('has-error');
-					$('.alert', $this).removeClass('alert-success').addClass('alert-danger').text('Your card ' + (typeof type == 'string' ? type : '') + ' is not valid.').show();
+					$('.alert', $this).removeClass('alert-success').addClass('alert-danger').text('Your card ' + iin + ' is not valid.').show();
 				}
 			}
 			else {
