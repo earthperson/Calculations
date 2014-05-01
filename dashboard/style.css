@@ -34,7 +34,7 @@ body {
 	color: #999999;
 }
 
-#luhn {
+#luhn .form-group {
 	width: 260px;
 	height: 162px;
 	background: url("images/mastercard_world.png") top left no-repeat;
@@ -47,10 +47,6 @@ body {
 	left: 22px;
 	display: inline-block;
 }
-
-.alert {
-	margin-bottom: 0;
-	width: 246px;
-	margin-left: 8px;
-	padding: 4px;
+#luhn .alert {
+	display: none;
 }
