@@ -22,9 +22,12 @@ $(function() {
 			"Visa Electron": [4026, 417500, 4405, 4508, 4844, 4913, 4917]
 		};
 		$('input', this).keyup(function() {
-			var a, b, l = 0, iin = '';
-			number[$(this).index()] = $.trim($(this).val());
-			if(number.join('').length == 16) {
+			var a, b, l = 0, index = $(this).index(), iin = '';
+			number[index] = $.trim($(this).val());
+			if(number.join('').length % 4 === 0 && number.join('').length !== 16) {
+				$('input').eq(index + 1).focus();
+			}
+			else if(number.join('').length == 16) {
 				for(a in iins) {
 					for(b in iins[a]) {
 						if (number.join('').substring(0, iins[a][b].toString().length) == iins[a][b]) {
