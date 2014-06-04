@@ -59,15 +59,15 @@ $(function() {
 			e.preventDefault();
 			var time = datarate.getDownloadTime({
 				"bitrate": $.trim($('#bitrate').val()),
-				"bitrateMultiplier": $('#si-prefix-bitrate').val(),
+				"bitrateMultiplier": $('#binary-prefix-bitrate').val(),
 				"filesize": $.trim($('#filesize').val()),
-				"filesizeMultiplier": $('#si-prefix-filesize').val()
+				"filesizeMultiplier": $('#binary-prefix-filesize').val()
 			});
 			if(time != '?') {
 				$('.alert', $this).removeClass('alert-danger').text('Download time (hh:mm:ss): '+time).show();
 			}
 			else {
-				$('.alert', $this).removeClass('alert-danger').addClass('alert-danger').text('Out of range').show();
+				$('.alert', $this).removeClass('alert-danger').addClass('alert-danger').text('Out of range.').show();
 			}
 			
 		});
