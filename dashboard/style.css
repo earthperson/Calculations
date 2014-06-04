@@ -26,6 +26,9 @@ body {
 
 /* Custom page CSS
 -------------------------------------------------- */
+.alert {
+	display: none;
+}
 #footer > .container {
 	padding-top: 20px;
 }
@@ -46,7 +49,4 @@ body {
 	top: 90px;
 	left: 22px;
 	display: inline-block;
-}
-#luhn .alert {
-	display: none;
 }

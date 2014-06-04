@@ -52,5 +52,21 @@ $(function() {
 			}
 		});
 	};
+	
+	$.fn.datarate = function () {
+		var $this = this;
+		$('button', this).click(function(e) {
+			e.preventDefault();
+			var time = datarate.getDownloadTime({
+				"bitrate": $.trim($('#bitrate').val()),
+				"bitrateMultiplier": $('#si-prefix-bitrate').val(),
+				"filesize": $.trim($('#filesize').val()),
+				"filesizeMultiplier": $('#si-prefix-filesize').val()
+			});
+			$('.alert', $this).text('Download time (hh:mm:ss): '+time).show();
+		});
+	};
+	
 	$('#luhn').luhn();
+	$('#datarate').datarate();
 });
