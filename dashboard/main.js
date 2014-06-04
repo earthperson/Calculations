@@ -63,7 +63,13 @@ $(function() {
 				"filesize": $.trim($('#filesize').val()),
 				"filesizeMultiplier": $('#si-prefix-filesize').val()
 			});
-			$('.alert', $this).text('Download time (hh:mm:ss): '+time).show();
+			if(time != '?') {
+				$('.alert', $this).removeClass('alert-danger').text('Download time (hh:mm:ss): '+time).show();
+			}
+			else {
+				$('.alert', $this).removeClass('alert-danger').addClass('alert-danger').text('Out of range').show();
+			}
+			
 		});
 	};
 	
