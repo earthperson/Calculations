@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Calculations dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="bootstrap/dist/css/bootstrap-theme.min.css">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="bootstrap/vendor/js/html5shiv.js"></script>
+			<script src="bootstrap/vendor/js/respond.min.js"></script>
+		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="style.css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1><span class="glyphicon glyphicon-dashboard"></span> Calculations</h1>
+				<p class="lead">
+					Dashboard for <a href="https://github.com/earthperson/Calculations" target="_blank">calculations</a>.
+				</p>
+			</div>
+			<ul>
+				<li id="luhn">
+					Luhn algorithm implementation. <a href="http://en.wikipedia.org/wiki/Luhn" target="_blank">Luhn algorithm</a>
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="form-group">
+								<input type="text" class="form-control input-sm" placeholder="0000" maxlength="4">
+								<input type="text" class="form-control input-sm" placeholder="0000" maxlength="4">
+								<input type="text" class="form-control input-sm" placeholder="0000" maxlength="4">
+								<input type="text" class="form-control input-sm" placeholder="0000" maxlength="4">
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<div class="alert"></div>
+						</div>
+					</div>
+				</li>
+				<li id="datarate">
+					Get download time. <a href="http://en.wikipedia.org/wiki/Data_rate" target="_blank">Data rate</a>
+					<div class="row">
+						<div class="col-md-8">
+							<form class="form-inline" role="form">
+								<div class="form-group">
+									<label class="sr-only" for="bitrate">Bit rate</label>
+									<input type="number" class="form-control" id="bitrate" placeholder="Bit rate" min="1" step="1">
+								</div>
+								<div class="form-group">
+									<select class="form-control" id="binary-prefix-bitrate">
+										<option value="1024">KiB/s</option>
+										<option value="1048576">MiB/s</option>
+										<option value="1073741824">GiB/s</option>
+										<option value="1099511627776">TiB/s</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="filesize">File size</label>
+									<input type="number" class="form-control" id="filesize" placeholder="File size" min="1" step="1">
+								</div>
+								<div class="form-group">
+									<select class="form-control" id="binary-prefix-filesize">
+										<option value="1024">KiB</option>
+										<option value="1048576">MiB</option>
+										<option value="1073741824">GiB</option>
+										<option value="1099511627776">TiB</option>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-default">Get download time</button>
+							</form>
+						</div>
+						<div class="col-md-4">
+							<div class="alert alert-success"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="footer">
+			<div class="container">
+				<small>&copy; 2014 </small><a href="http://earthperson.info" target="_blank" class="small">earthperson</a>
+				<small class="pull-right">v1.0.0-alpha1</small>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="bootstrap/vendor/js/jquery.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="../luhn/luhn.js"></script>
+		<script type="text/javascript" src="../datarate/datarate.js"></script>
+	</body>
+</html>
